@@ -34,18 +34,7 @@ public class SalesTax {
            quantity[j]=temp2[0];
            item[j]=temp2[1];
            salesTax[j]=computeSalesTax(item[j],priceList[j]);
-           //System.out.println(temp2[1]);
-                   //itemInfo.get(j).substring(0, temp[0].indexOf(' ')).trim();
         }
-        for(int k=0; k<priceList.length; k++)
-        {
-            //System.out.println(priceList[k]);
-            System.out.println(salesTax[k]);
-        }
-
-        //while(itemPrice.length()>0)
-
-
 
     }
     double computeSalesTax(String item, double price)
@@ -70,7 +59,16 @@ public class SalesTax {
     }
     boolean isImported ( String item)
     {
+        String keyword = "imported";
+        if (item.toLowerCase().contains(keyword.toLowerCase()))
+        {
+            return true;
+        }
         return false;
+    }
+    double roundItemPrice(double price)
+    {
+        return 0;
     }
     void printReciept()
     {

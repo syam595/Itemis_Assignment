@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 public class SalesTaxTest {
     // Test cases for the method checkTaxExemption
     @Test
-    public void testcase1() {
+    public void checkTaxExemptionTest() {
         //fail("Not yet implemented");
         SalesTax salesTax = new SalesTax();
         assertEquals(salesTax.checkTaxExemption("Book"),true);
@@ -15,7 +15,7 @@ public class SalesTaxTest {
 
     }
     @Test
-    public void testcase2() {
+    public void checkTaxExemptionImportedTest() {
         //fail("Not yet implemented");
         SalesTax salesTax = new SalesTax();
         assertEquals(salesTax.checkTaxExemption("Imported chocolate bar"),true);
@@ -23,19 +23,28 @@ public class SalesTaxTest {
 
     }
 
-    // Test cases for the method isImported
+    // Test cases for the method isImported()
 
     @Test
     public void testcase3() {
         //fail("Not yet implemented");
         SalesTax salesTax = new SalesTax();
-        assertEquals(salesTax.checkTaxExemption("Book"),false);
-        assertEquals(salesTax.checkTaxExemption("headache pills"),false);
-        assertEquals(salesTax.checkTaxExemption("Imported chocolate bar"),true);
-        assertEquals(salesTax.checkTaxExemption("imported bottle of perfume"),true);
+        assertEquals(salesTax.isImported("Book"),false);
+        assertEquals(salesTax.isImported("headache pills"),false);
+        assertEquals(salesTax.isImported("Imported chocolate bar"),true);
+        assertEquals(salesTax.isImported("imported bottle of perfume"),true);
 
     }
 
+    // Test cases for the method roundItemprice()
+    @Test
+    public void roundItempriceTest() {
+        //fail("Not yet implemented");
+        SalesTax salesTax = new SalesTax();
+        assertEquals(salesTax.roundItemPrice(7.125),7.15,0.0);
+        assertEquals(salesTax.roundItemPrice(0.5625),0.60,0.0);
+        assertEquals(salesTax.roundItemPrice(0.85),0.85,0.0);
+    }
      /*
     @Test
 
