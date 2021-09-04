@@ -16,6 +16,8 @@ public class SalesTax {
         int n = Integer.parseInt(s);
         double [] priceList = new double[n];
         String [] quantity = new String[n];
+        String [] item = new String[n];
+        double [] salesTax = new double[n];
         System.out.println("Enter the item details");
         for (int i =0;i<n;i++)
         {
@@ -26,12 +28,17 @@ public class SalesTax {
         {
            String [] temp=   itemInfo.get(j).split(" at ",0);
            priceList[j]= Double.parseDouble(temp[1]);
-           quantity[j]=itemInfo.get(j).substring(0, itemInfo.get(j).indexOf(' ')).trim();
+           String [] temp2 = temp[0].split(" ", 2);
+           quantity[j]=temp2[0];
+           item[j]=temp2[1];
+           salesTax[j]=computeSalesTax(item[j],priceList[j]);
+           //System.out.println(temp2[1]);
+                   //itemInfo.get(j).substring(0, temp[0].indexOf(' ')).trim();
         }
         for(int k=0; k<priceList.length; k++)
         {
-            System.out.println(priceList[k]);
-            System.out.println(quantity[k]);
+            //System.out.println(priceList[k]);
+            System.out.println(salesTax[k]);
         }
 
         //while(itemPrice.length()>0)
@@ -39,13 +46,13 @@ public class SalesTax {
 
 
     }
-    int computeSalesTax(String item, double price, boolean importflag)
+    double computeSalesTax(String item, double price)
     {
         return 0;
     }
-    void checkTaxExemption()
+    boolean checkTaxExemption(String item)
     {
-
+    return false;
     }
     void printReciept()
     {
