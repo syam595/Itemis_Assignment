@@ -68,6 +68,10 @@ public class SalesTax {
         return false;
 
     }
+    boolean isImported ( String item)
+    {
+        return false;
+    }
     void printReciept()
     {
 

@@ -23,6 +23,19 @@ public class SalesTaxTest {
 
     }
 
+    // Test cases for the method isImported
+
+    @Test
+    public void testcase3() {
+        //fail("Not yet implemented");
+        SalesTax salesTax = new SalesTax();
+        assertEquals(salesTax.checkTaxExemption("Book"),false);
+        assertEquals(salesTax.checkTaxExemption("headache pills"),false);
+        assertEquals(salesTax.checkTaxExemption("Imported chocolate bar"),true);
+        assertEquals(salesTax.checkTaxExemption("imported bottle of perfume"),true);
+
+    }
+
      /*
     @Test
 
