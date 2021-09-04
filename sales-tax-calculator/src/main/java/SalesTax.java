@@ -37,6 +37,10 @@ public class SalesTax {
            item[j]=temp2[1];
            salesTax[j]=computeSalesTax(item[j],priceList[j]);
         }
+        for (int k=0;k<priceList.length;k++)
+        {
+            System.out.println(item[k]);
+        }
 
     }
     double computeSalesTax(String item, double price)

@@ -41,39 +41,38 @@ public class SalesTaxTest {
     public void roundItempriceTest() {
         //fail("Not yet implemented");
         SalesTax salesTax = new SalesTax();
-
         assertEquals(salesTax.roundItemPrice(7.125),7.15,0.0);
         assertEquals(salesTax.roundItemPrice(0.5625),0.60,0.0);
         assertEquals(salesTax.roundItemPrice(0.85),0.85,0.0);
     }
-     /*
-    @Test
+    // Test cases for the method computeSalesTax()
 
-    public void testcase1() {
+    @Test
+    public void computeSalesTaxTestSet1() {
         //fail("Not yet implemented");
         SalesTax salesTax = new SalesTax();
-        assertEquals(salesTax.computeSalesTax("Book",12.49,false),12.49,0.0);
-        assertEquals(salesTax.computeSalesTax("Music CD",14.99,false),16.49,0.0);
-        assertEquals(salesTax.computeSalesTax("Chocolate bar",0.85,false),0.85,0.0);
+        assertEquals(salesTax.computeSalesTax("book",12.49),12.49,0.0);
+        assertEquals(salesTax.computeSalesTax("music CD",14.99),16.49,0.0);
+        assertEquals(salesTax.computeSalesTax("chocolate bar",0.85),0.85,0.0);
     }
 
     @Test
-    public void testcase2() {
+    public void computeSalesTaxTestSet2() {
         //fail("Not yet implemented");
         SalesTax salesTax = new SalesTax();
-        //assertEquals(salesTax.computeSalesTax("Box of Chocolate",10.00,true),10.50,0.0);
-        //assertEquals(salesTax.computeSalesTax("Bottle of Perfume",47.50,true),54.65,0.0);
+        assertEquals(salesTax.computeSalesTax("imported box of chocolates",10.00),10.50,0.0);
+        assertEquals(salesTax.computeSalesTax("imported bottle of perfume",47.50),54.65,0.0);
     }
 
     @Test
-    public void testcase3() {
+    public void computeSalesTaxTestSet3() {
         //fail("Not yet implemented");
         SalesTax salesTax = new SalesTax();
-        assertEquals(salesTax.computeSalesTax("Bottle of Perfume",27.99,true),32.19,0.0);
-        assertEquals(salesTax.computeSalesTax("Bottle of Perfume",18.99,false),20.89,0.0);
-        assertEquals(salesTax.computeSalesTax("Packet of Headache Pills",9.75,true),9.75,0.0);
-        assertEquals(salesTax.computeSalesTax("Box of Chocolate",11.25,true),11.85,0.0);
+        assertEquals(salesTax.computeSalesTax("imported bottle of perfume",27.99),32.19,0.0);
+        assertEquals(salesTax.computeSalesTax("bottle of perfume",18.99),20.89,0.0);
+        assertEquals(salesTax.computeSalesTax("packet of headache pills",9.75),9.75,0.0);
+        assertEquals(salesTax.computeSalesTax("box of i mported chocolates",11.25),11.85,0.0);
 
-    }*/
+    }
 
 }
