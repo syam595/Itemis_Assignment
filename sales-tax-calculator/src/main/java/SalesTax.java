@@ -2,7 +2,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class SalesTax {
     public SalesTax() {
@@ -52,7 +54,19 @@ public class SalesTax {
     }
     boolean checkTaxExemption(String item)
     {
-    return false;
+        Set<String> taxExemptedItems = new HashSet<String>();
+        taxExemptedItems.add("book");
+        taxExemptedItems.add("chocolate");
+        taxExemptedItems.add("headache pills");
+        for( String a : taxExemptedItems)
+        {
+            if (item.toLowerCase().contains(a.toLowerCase()))
+            {
+                return true;
+            }
+        }
+        return false;
+
     }
     void printReciept()
     {

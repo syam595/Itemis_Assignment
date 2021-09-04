@@ -9,11 +9,12 @@ public class SalesTaxTest {
         //fail("Not yet implemented");
         SalesTax salesTax = new SalesTax();
         assertEquals(salesTax.checkTaxExemption("Book"),true);
-        assertEquals(salesTax.checkTaxExemption("Headache pills"),true);
-        assertEquals(salesTax.checkTaxExemption("Chocolate bar"),true);
-        assertEquals(salesTax.checkTaxExemption("Perfume"),false);
+        assertEquals(salesTax.checkTaxExemption("headache pills"),true);
+        assertEquals(salesTax.checkTaxExemption("chocolate bar"),true);
+        assertEquals(salesTax.checkTaxExemption("perfume"),false);
 
     }
+    @Test
     public void testcase2() {
         //fail("Not yet implemented");
         SalesTax salesTax = new SalesTax();
