@@ -41,6 +41,7 @@ public class SalesTaxTest {
     public void roundItempriceTest() {
         //fail("Not yet implemented");
         SalesTax salesTax = new SalesTax();
+
         assertEquals(salesTax.roundItemPrice(7.125),7.15,0.0);
         assertEquals(salesTax.roundItemPrice(0.5625),0.60,0.0);
         assertEquals(salesTax.roundItemPrice(0.85),0.85,0.0);

@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+import java.math.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -68,7 +70,9 @@ public class SalesTax {
     }
     double roundItemPrice(double price)
     {
-        return 0;
+        BigDecimal bPrice = new BigDecimal(price);
+        BigDecimal step = new BigDecimal(0.05);
+        return bPrice.divide(step, 0, RoundingMode.UP).multiply(step).setScale(2,RoundingMode.HALF_UP).doubleValue();
     }
     void printReciept()
     {
