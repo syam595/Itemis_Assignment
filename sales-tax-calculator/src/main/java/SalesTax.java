@@ -15,7 +15,7 @@ public class SalesTax {
     }
 
     void readItemDetails() throws IOException {
-        List<String> itemInfo = new ArrayList();
+        List<String> itemInfo = new ArrayList<>();
         System.out.println("Enter the number of items");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String s = br.readLine();
@@ -23,7 +23,8 @@ public class SalesTax {
         double[] priceList = new double[n];
         String[] quantity = new String[n];
         String[] item = new String[n];
-        double[] salesTax = new double[n];
+        double[] shelfPrice = new double[n];
+        double shelfPriceTotal = 0, priceListTotal = 0;
         System.out.println("Enter the item details");
         for (int i = 0; i < n; i++) {
             String temp = br.readLine();
@@ -35,9 +36,16 @@ public class SalesTax {
             String[] temp2 = temp[0].split(" ", 2);
             quantity[j] = temp2[0];
             item[j] = temp2[1];
-            salesTax[j] = computeSalesTax(item[j], priceList[j]);
+            shelfPrice[j] = computeSalesTax(item[j], priceList[j]);
+            shelfPriceTotal += shelfPrice[j];
+            priceListTotal += priceList[j];
+            System.out.println(quantity[j] + " " + item[j] + ": " + shelfPrice[j]);
         }
+        BigDecimal temp1 = new BigDecimal(shelfPriceTotal);
+        BigDecimal temp2 = new BigDecimal(shelfPriceTotal - priceListTotal);
 
+        System.out.println("Sales Taxes: " + temp2.setScale(2, RoundingMode.HALF_UP).doubleValue());
+        System.out.println("Total: " + temp1.setScale(2, RoundingMode.HALF_UP).doubleValue());
 
     }
 
@@ -62,7 +70,6 @@ public class SalesTax {
             }
         }
         salesTax = salesTaxCut * price;
-
         BigDecimal temp = new BigDecimal((roundItemPrice(salesTax)) + price);
         return temp.setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
@@ -83,22 +90,16 @@ public class SalesTax {
 
     boolean isImported(String item) {
         String keyword = "imported";
-        if (item.toLowerCase().contains(keyword.toLowerCase())) {
-            return true;
-        }
-        return false;
+        return item.toLowerCase().contains(keyword.toLowerCase());
     }
 
     double roundItemPrice(double price) {
         BigDecimal bPrice = new BigDecimal(price);
-        BigDecimal step = new BigDecimal(0.05);
+        BigDecimal step = new BigDecimal("0.05");
         return bPrice.divide(step, 0, RoundingMode.UP).multiply(step).setScale(2, RoundingMode.HALF_UP).doubleValue();
 
     }
 
-    void printReciept() {
-
-    }
 
     public static void main(String[] args) throws IOException {
         // TODO Auto-generated method stub
