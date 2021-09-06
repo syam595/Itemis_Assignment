@@ -24,12 +24,13 @@ public class SalesTax {
         String[] quantity = new String[n];
         String[] item = new String[n];
         double[] shelfPrice = new double[n];
-        double shelfPriceTotal = 0, priceListTotal = 0;
+        double shelfPriceTotal = 0;
         System.out.println("Enter the item details");
         for (int i = 0; i < n; i++) {
             String temp = br.readLine();
             itemInfo.add(temp);
         }
+        double priceListTotal = 0;
         for (int j = 0; j < itemInfo.size(); j++) {
             String[] temp = itemInfo.get(j).split(" at ", 0);
             priceList[j] = Double.parseDouble(temp[1]);
@@ -49,6 +50,7 @@ public class SalesTax {
 
     }
 
+    /* The computeSalesTax method calculates the sales tax and returns the shelf price  */
     double computeSalesTax(String item, double price) {
         double salesTaxCut = 0.10;
         double salesTaxImportedCut = 0.05;
@@ -74,6 +76,7 @@ public class SalesTax {
         return temp.setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
+    /* The method checkTaxExemption checks if the item is exempted from sales tax */
     boolean checkTaxExemption(String item) {
         Set<String> taxExemptedItems = new HashSet<String>();
         taxExemptedItems.add("book");
@@ -88,11 +91,13 @@ public class SalesTax {
 
     }
 
+    /* The method isImported checks if the item is imported */
     boolean isImported(String item) {
         String keyword = "imported";
         return item.toLowerCase().contains(keyword.toLowerCase());
     }
 
+    /* The method roundItemPrice rounds the value as per the question logic */
     double roundItemPrice(double price) {
         BigDecimal bPrice = new BigDecimal(price);
         BigDecimal step = new BigDecimal("0.05");
